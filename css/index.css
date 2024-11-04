@@ -296,6 +296,18 @@ body{
         
     }
 
+    @media (max-width:3840px){
+        .Inside-h2{
+            width: 35%;
+        }
+    }
+
+    @media (max-width:2560px){
+        .Inside-h2{
+            width: 50%;
+        }
+    }
+
     @media (max-width:1070px){
         .Header-nav{
             display: none;
