@@ -64,20 +64,21 @@ body{
         background-color: var(--color-primary);
         padding: 2.2vw 4vw 2.2vw 4vw;
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: row wrap;
         justify-content: space-between;
         align-items: center;
         font-weight: 500;
 
+        position: relative;
+        
     }
-
 
     .Header-h1{
 
         max-width: 9.6875rem;
-        background-color:var(--color-primary);
-        
+        cursor: pointer;
 
+        z-index: 2;
     }
 
     .Header-nav{
@@ -93,7 +94,7 @@ body{
         justify-content: flex-end;
         align-items: center;
         font-weight: 500;
-        gap: 1.25rem;
+        gap: 4.375rem;
     }
 
    
@@ -117,7 +118,9 @@ body{
         justify-content: center; /* Centra las barras */
         align-items: center;
         gap: 6px; /* Espacio entre las barras */
-      }
+
+        z-index: 2;
+    }
       
       /* Estilos para las barras */
     .Menu-buton span{
@@ -141,15 +144,18 @@ body{
       /* Estado cuando el botón está activo */
     .Menu-buton.active span:nth-child(1) {
         transform: rotate(-135deg); /* Rota la barra superior */
+        background-color: white;
       
        
     }
       
     .Menu-buton.active span:nth-child(2) {
         transform: rotate(135deg); /* Rota la barra inferior */
+        background-color: white;
         
         
     }
+
 
     .Inside{
 
@@ -308,21 +314,79 @@ body{
         }
     }
 
-    @media (max-width:1070px){
+    @media (max-width:800px){
         .Header-nav{
+            width: 100%;
             display: none;
+        }
+        .Header.active{
+            background-color: #B1B1B1;
+            position: fixed;
+            z-index: 2;
         }
         .Menu-buton{
             display: flex;
         }
-    }
+        .Header-ul{
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 16.125rem 0 0 2.5rem;
+        }
+        .Header-li{
+            background-color: #B1B1B1;
+            font-size: 2.25em;
+            font-weight: bold;
+            padding: 10px;
+            margin: 1rem;
+            color: white;
+            
+    
+        }
+        .Header-a::after{
+            content: ">";
+            margin: 1rem;
+            font-weight: 100;
+        }
+        .Header-nav.visible{
+            display: block; /* Mostrar menú */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color:#B1B1B1;
+            z-index: 1;
 
-    @media (max-width:800px){
+        }
+        .Header{
+            padding: 2.2vw 4vw 2.2vw 4vw;
+        }
         .Columnas{
             
             grid-template-columns: 1fr;
         }
     }
+    @media (max-width:400px){
+        .Header-h1{
+            max-width: 7.5rem;
+        }
+        .Header-li{
+            font-size: 1.5em;
+        }
+        .Header-ul{
+            margin: 16.125rem 0 0 .5rem;
+        }
+    }
+    @media (max-width:400px){
+        .Header-li{
+            font-size: 1em;
+        }
+        .Header-ul{
+            margin: 16.125rem 0;
+        }
+    }
+
+   
 
     
 
