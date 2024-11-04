@@ -69,6 +69,9 @@ body{
         align-items: center;
         font-weight: 500;
 
+        transition: background-color 0.5s ease, opacity 0.5s ease; 
+        opacity: 1; 
+
         position: relative;
         
     }
@@ -84,6 +87,8 @@ body{
     .Header-nav{
 
         background-color:var(--color-primary);
+        transition: background-color 0.5s ease, opacity 0.5s ease;
+        opacity: 1;
 
     }
 
@@ -101,6 +106,7 @@ body{
     .Header-li{
 
         background-color:var(--color-primary);
+        transition: background-color 0.5s ease, opacity 0.5s ease; 
     }
 
     
@@ -155,7 +161,6 @@ body{
         
         
     }
-
 
     .Inside{
 
@@ -317,12 +322,20 @@ body{
     @media (max-width:800px){
         .Header-nav{
             width: 100%;
-            display: none;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            pointer-events: none;
+
         }
         .Header.active{
             background-color: #B1B1B1;
+            opacity: 1;
+
             position: fixed;
             z-index: 2;
+
+           
         }
         .Menu-buton{
             display: flex;
@@ -331,14 +344,16 @@ body{
             flex-direction: column;
             align-items: flex-start;
             margin: 16.125rem 0 0 2.5rem;
+           
         }
         .Header-li{
-            background-color: #B1B1B1;
+            background-color: transparent;
             font-size: 2.25em;
             font-weight: bold;
             padding: 10px;
             margin: 1rem;
             color: white;
+           
             
     
         }
@@ -348,14 +363,16 @@ body{
             font-weight: 100;
         }
         .Header-nav.visible{
-            display: block; /* Mostrar menú */
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
+            overflow: hidden;
             background-color:#B1B1B1;
+            opacity: 1;
             z-index: 1;
+            pointer-events: auto;
 
         }
         .Header{
